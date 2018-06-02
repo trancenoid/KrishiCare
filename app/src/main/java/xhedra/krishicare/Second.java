@@ -109,7 +109,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
 
     public void voiceinputbuttons() {
         speakButton1 = (ImageButton) findViewById(R.id.btn_speak1);
-        mList1 = (ListView) findViewById(R.id.list);
+        mList1 = (ListView) findViewById(R.id.list1);
     }
 
     public void startVoiceRecognitionActivity() {
