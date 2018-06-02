@@ -1,0 +1,102 @@
+{
+  "project_info": {
+    "project_number": "897074179135",
+    "firebase_url": "https://test2-36141.firebaseio.com",
+    "project_id": "test2-36141",
+    "storage_bucket": "test2-36141.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897074179135:android:54f68695241a03c1",
+        "android_client_info": {
+          "package_name": "xhedra.krishicare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897074179135-52g0al4thu0l692fb17g4ovrvbpguqbf.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "897074179135-52g0al4thu0l692fb17g4ovrvbpguqbf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYrz8hkT9Z7fyQyeMuYQTZz4VUbL1KXIU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897074179135:android:33e24dab3d95d1ba",
+        "android_client_info": {
+          "package_name": "xhedra.test2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897074179135-6to9jj6olp69237o2fb698qc82mo5g61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xhedra.test2",
+            "certificate_hash": "f0f78933bba5570f0070cc5cc1558178f90af440"
+          }
+        },
+        {
+          "client_id": "897074179135-mrp70bhp0d7om3ahu6v8fhc0n27f4jni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xhedra.test2",
+            "certificate_hash": "8a552efcd429597bdfc7220fd746c8181716dc42"
+          }
+        },
+        {
+          "client_id": "897074179135-52g0al4thu0l692fb17g4ovrvbpguqbf.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "897074179135-52g0al4thu0l692fb17g4ovrvbpguqbf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYrz8hkT9Z7fyQyeMuYQTZz4VUbL1KXIU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897074179135-52g0al4thu0l692fb17g4ovrvbpguqbf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
