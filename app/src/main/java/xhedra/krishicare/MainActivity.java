@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         Configuration conf = res.getConfiguration();
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, myDM);
-        Intent refresh = new Intent(this, MainActivity.class);
+        Intent refresh = new Intent(this, Login.class);
         startActivity(refresh);
         finish();
 
