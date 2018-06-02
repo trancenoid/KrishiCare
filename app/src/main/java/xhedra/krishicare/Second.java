@@ -69,6 +69,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
             public void onClick(View view) {
                 String replyString = rep.getText().toString();
                 speak(replyString);
+
             }
         });
 
@@ -88,7 +89,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
         getApplicationContext().startActivity(new Intent(getApplicationContext(),NewQuery.class));
     }
     public void Rep(View view) {
-        getApplicationContext().startActivity(new Intent(getApplicationContext(),Second.class));
+        getApplicationContext().startActivity(new Intent(getApplicationContext(),Reply.class));
     }
 
     @Override

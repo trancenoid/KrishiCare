@@ -18,7 +18,7 @@
         <ImageButton
             android:id="@+id/btn_speak1"
             android:layout_width="wrap_content"
-            android:layout_margin="15dp"
+
             android:layout_height="wrap_content"
             android:layout_margin="100dp"
             android:background="@drawable/grad_bg"
