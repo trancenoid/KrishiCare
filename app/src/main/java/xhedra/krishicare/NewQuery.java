@@ -21,6 +21,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -103,6 +104,8 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         video = findViewById(R.id.videoQuery);
         text = findViewById(R.id.textQuery);
         textQuery = (EditText) findViewById(R.id.editText2);
+
+        mList2 = (ListView)findViewById(R.id.list3);
 
         speakButton2 = (ImageButton) findViewById(R.id.btn_speak2);
         speakButton2.setOnClickListener(this);
@@ -306,6 +309,31 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         });
     }
+    private void uploadVideo() {
+        StorageReference storageReference = storage.child(Login.phn).child("VID.mp4");
+        storageReference.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(NewQuery.this, "Success", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(NewQuery.this, "Could not upload", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                //calculating progress percentage
+                double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+
+                //displaying percentage in progress dialog
+                progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+                progressDialog.show();
+            }
+        });
+    }
 
     private void chooseImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -346,7 +374,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             filePath = Uri.fromFile(new File(mCurrentImagePath));
             Picasso.get().load(filePath).into(imgUpld);
         }
-        else if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
             // Fill the list view with the strings the recognizer thought it
             // could have heard
             ArrayList matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
@@ -395,13 +423,32 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         }
     }
 
+    private void chooseVideo() {
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            File videoFile = null;
+            try {
+                videoFile = createNewFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            if (videoFile != null) {
+                Uri VideoUri = FileProvider.getUriForFile(NewQuery.this, "xhedra.krishicare.fileprovider", videoFile);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, VideoUri);
+                startActivityForResult(intent, 1);
+
+
+            }
+        }
+    }
+
     public void informationMenu() {
         startActivity(new Intent("android.intent.action.INFOSCREEN"));
     }
 
     public void voiceinputbuttons() {
         speakButton2 = (ImageButton) findViewById(R.id.btn_speak2);
-        mList2 = (ListView) findViewById(R.id.list);
+        mList2 = (ListView) findViewById(R.id.list3);
     }
 
     public void startVoiceRecognitionActivity() {

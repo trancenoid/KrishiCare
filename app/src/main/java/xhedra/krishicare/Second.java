@@ -109,7 +109,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
 
     public void voiceinputbuttons() {
         speakButton1 = (ImageButton) findViewById(R.id.btn_speak1);
-        mList1 = (ListView) findViewById(R.id.list);
+        mList1 = (ListView) findViewById(R.id.list1);
     }
 
     public void startVoiceRecognitionActivity() {
@@ -150,9 +150,9 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
             if(matches.contains("one") || matches.contains("ek")){
                 startActivity(new Intent(this,NewQuery.class));
             }else if(matches.contains("to") || matches.contains("do")){
-                startActivity(new Intent(this,NewQuery.class));
+                startActivity(new Intent(this,FAQ.class));
             }else if(matches.contains("three") || matches.contains("teen")){
-                startActivity(new Intent(this,NewQuery.class));
+                startActivity(new Intent(this,Reply.class));
             }
 
             if (matches.contains("information")) {

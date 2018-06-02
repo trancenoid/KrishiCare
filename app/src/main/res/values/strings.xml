@@ -1,15 +1,16 @@
 <resources>
     <string name="app_name">test2</string>
-    <string name="marathi">मराठी</string>
-    <string name="hindi">हिंदी</string>
-    <string name="english">English</string>
+    <string name="marathi">1. मराठी</string>
+    <string name="hindi">2. हिंदी</string>
+    <string name="english">3. English</string>
     <string name="login">Login</string>
-    <string name="audio">Audio</string>
-    <string name="video">Video</string>
-    <string name="text">Text</string>
-    <string name="image">Image</string>
-    <string name="newquery">New Query</string>
-    <string name="faq">FAQ</string>
-    <string name="reply">Reply</string>
+    <string name="audio">4. Audio</string>
+    <string name="video">2. Video</string>
+    <string name="text">3. Text</string>
+    <string name="image">1. Image</string>
+    <string name="newquery">1. New Query</string>
+    <string name="faq">2. FAQ</string>
+    <string name="reply">3. Replies</string>
     <string name="upload">UPLOAD</string>
+    <string name="langTest">Please Choose Your Language</string>
 </resources>

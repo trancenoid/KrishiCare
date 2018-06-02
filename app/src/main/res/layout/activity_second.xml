@@ -18,15 +18,16 @@
         <ImageButton
             android:id="@+id/btn_speak1"
             android:layout_width="wrap_content"
+            android:layout_margin="15dp"
             android:layout_height="wrap_content"
             android:layout_margin="100dp"
             android:background="@drawable/grad_bg"
             app:srcCompat="@drawable/mic" />
 
         <ListView
-            android:id="@+id/list1"
             android:layout_width="wrap_content"
-            android:layout_height="1dp" />
+            android:layout_height="1dp"
+            android:id="@+id/list1"/>
 
 
         <LinearLayout
@@ -42,8 +43,8 @@
                 android:layout_margin="15dp"
                 android:background="@drawable/round"
                 android:text="@string/newquery"
-                android:textColor="#23A7D8" />
-            android:text="1. New Query" />
+                android:textColor="#23A7D8"
+            />
 
             <ImageButton
                 android:id="@+id/queryText"
@@ -70,7 +71,7 @@
 
                 android:text="@string/faq"
                 android:textColor="#23A7D8" />
-            android:text="2. FAQ" />
+
 
             <ImageButton
                 android:id="@+id/faqText"
@@ -97,8 +98,8 @@
 
                 android:background="@drawable/round"
                 android:onClick="Rep"
-                android:text="3. Replies"
-                android:textColor="#23A7D8" />
+
+                android:textColor="#23A7D8"
             android:text="@string/reply" />
 
             <ImageButton
@@ -110,6 +111,7 @@
                 app:srcCompat="@android:drawable/ic_menu_help" />
 
         </LinearLayout>
+
 
 
     </LinearLayout>
