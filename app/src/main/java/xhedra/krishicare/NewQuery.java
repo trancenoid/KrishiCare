@@ -9,8 +9,8 @@ import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.speech.RecognizerIntent;
 import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
@@ -25,9 +25,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,15 +47,23 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitListener,View.OnClickListener {
+
+    public ListView mList2;
+    public ImageButton speakButton2;
+
+    public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
     private FloatingActionButton record;
     private TextView label;
     private ImageView imgUpld;
     private MediaRecorder mRecorder;
+
+    private ImageButton stopRecording;
 
     private String mFileName = null;
 
@@ -82,15 +93,30 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_query);
 
+        stopRecording = (ImageButton)findViewById(R.id.stopRec);
+
         engine = new TextToSpeech(this, this);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("query");
 
-        upload = findViewById(R.id.upload);
+        upload = findViewById(R.id.record);
         image = findViewById(R.id.imageQuery);
         video = findViewById(R.id.videoQuery);
         text = findViewById(R.id.textQuery);
         textQuery = (EditText) findViewById(R.id.editText2);
+
+        speakButton2 = (ImageButton) findViewById(R.id.btn_speak2);
+        speakButton2.setOnClickListener(this);
+
+        voiceinputbuttons();
+
+        stopRecording.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stopRecording();
+                uploadAudio();
+            }
+        });
 
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
@@ -153,7 +179,6 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             public void onClick(View view) {
                 String videotext = video.getText().toString();
                 speak(videotext);
-                chooseVideo();
             }
         });
 
@@ -340,10 +365,59 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         engine.speak(s, TextToSpeech.QUEUE_FLUSH, null, null);
     }
     @Override
-    protected void onActivityResult(int requestcode, int returncode, Intent data){
-        if(requestcode == 1 && data != null){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1 && data != null){
             filePath = Uri.fromFile(new File(mCurrentImagePath));
             Picasso.get().load(filePath).into(imgUpld);
+        }
+        else if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
+            // Fill the list view with the strings the recognizer thought it
+            // could have heard
+            ArrayList matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            mList2.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_1, matches));
+            // matches is the result of voice input. It is a list of what the
+            // user possibly said.
+            // Using an if statement for the keyword you want to use allows the
+            // use of any activity if keywords match
+            // it is possible to set up multiple keywords to use the same
+            // activity so more than one word will allow the user
+            // to use the activity (makes it so the user doesn't have to
+            // memorize words from a list)
+            // to use an activity from the voice input information simply use
+            // the following format;
+            // if (matches.contains("keyword here") { startActivity(new
+            // Intent("name.of.manifest.ACTIVITY")
+            if(matches.contains("one") || matches.contains("ek")){
+                uploadImage();
+                Toast.makeText(this,"Image Uploaded",Toast.LENGTH_SHORT).show();
+            }else if(matches.contains("do") || matches.contains("to")){
+                uploadImage();
+                Toast.makeText(this,"Video Uploaded",Toast.LENGTH_SHORT).show();
+            }else if(matches.contains("three") || matches.contains("teen")){
+                String textS = text.getText().toString();
+                String query = textQuery.toString();
+                speak(textS);
+                //addQuery();
+                StorageReference filepath = storage.child("Text").child("text.txt");
+
+                filepath.putBytes(query.getBytes()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        progressDialog.dismiss();
+                        label.setText("Uploading Finished");
+                    }
+                });
+            }else if(matches.contains("four") || matches.contains("chaar")){
+                startRecording();
+            }else{
+                Toast.makeText(this,"Please speak again",Toast.LENGTH_SHORT).show();
+            }
+
+            if (matches.contains("information")) {
+                informationMenu();
+            }
         }
     }
 
@@ -365,4 +439,28 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         }
     }
+
+    public void informationMenu() {
+        startActivity(new Intent("android.intent.action.INFOSCREEN"));
+    }
+
+    public void voiceinputbuttons() {
+        speakButton2 = (ImageButton) findViewById(R.id.btn_speak2);
+        mList2 = (ListView) findViewById(R.id.list);
+    }
+
+    public void startVoiceRecognitionActivity() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                "Speech recognition demo");
+        startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
+    }
+
+    public void onClick(View v) {
+        // TODO Auto-generated method stub
+        startVoiceRecognitionActivity();
+    }
+
 }
