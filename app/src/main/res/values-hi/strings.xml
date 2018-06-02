@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="audio">आवाज़</string>
+    <string name="video">वीडियो</string>
+    <string name="text">लिखित सवाल</string>
+    <string name="image">चित्र</string>
+    <string name="newquery">नया सवाल</string>
+    <string name="faq">प्रचलित प्रश्न</string>
+    <string name="reply">जवाब</string>
+    <string name="upload">भेजें</string>
+</resources>
