@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,14 +8,11 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/record"
-        android:layout_width="70dp"
-        android:layout_height="75dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="86dp"
         android:clickable="true"
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,15 +24,12 @@
 
     <TextView
         android:id="@+id/audioQuery"
-        android:layout_width="78dp"
-        android:layout_height="36dp"
-        android:layout_alignBottom="@+id/record"
+        android:layout_width="93dp"
+        android:layout_height="37dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/record"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="8dp"
-        android:text="Audio"
+        android:layout_alignTop="@+id/textQuery"
+        android:layout_marginEnd="25dp"
+        android:text="4.Audio"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,10 +41,10 @@
         android:id="@+id/imgUpld"
         android:layout_width="150dp"
         android:layout_height="124dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageQuery"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,12 +54,13 @@
 
     <TextView
         android:id="@+id/imageQuery"
-        android:layout_width="78dp"
+        android:layout_width="100dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="332dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="8dp"
-        android:text="Image"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="196dp"
+        android:text="1.Image"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,10 +72,8 @@
         android:id="@+id/vdUpld"
         android:layout_width="160dp"
         android:layout_height="124dp"
-        android:layout_marginBottom="164dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="49dp"
+        android:layout_alignEnd="@+id/audioQuery"
+        android:layout_alignTop="@+id/imgUpld"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/videoQuery"
         app:layout_constraintHorizontal_bias="0.12"
@@ -90,12 +83,12 @@
 
     <TextView
         android:id="@+id/videoQuery"
-        android:layout_width="78dp"
+        android:layout_width="101dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="124dp"
-        android:text="Video"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/imageQuery"
+        android:layout_marginEnd="45dp"
+        android:text="2.Video"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,10 +100,9 @@
         android:id="@+id/editText2"
         android:layout_width="161dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_alignEnd="@+id/imgUpld"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="126dp"
         android:ems="10"
         android:inputType="text"
         android:singleLine="false"
@@ -127,11 +119,10 @@
         android:id="@+id/textQuery"
         android:layout_width="78dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Text"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageQuery"
+        android:layout_marginBottom="63dp"
+        android:text="3.Text"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,20 +132,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.844" />
 
-    <Button
-        android:id="@+id/upload"
+    <ImageButton
+        android:id="@+id/btn_speak2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Upload"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="232dp"
+        app:srcCompat="@android:drawable/ic_btn_speak_now" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:id="@+id/list3"/>
+
+    <ImageButton
+        android:id="@+id/stopRec"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignBottom="@+id/record"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp"
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

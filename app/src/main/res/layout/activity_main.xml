@@ -58,7 +58,7 @@
             android:background="@drawable/register_button"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="मराठी"
+            android:text="1. मराठी"
             android:textColor="@color/white"
             android:textStyle="normal" />
 
@@ -72,24 +72,38 @@
             android:background="@drawable/register_button"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="हिंदी"
+            android:text="2. हिंदी"
             android:textColor="@color/white"
             android:textStyle="normal" />
 
         <Button
+            android:id="@+id/en"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textColor="@color/white"
-            android:text="@string/english"
-            android:textStyle="normal"
-            android:background="@drawable/register_button"
             android:layout_gravity="center"
+            android:layout_marginBottom="36dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/register_button"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="36dp"
-            android:id="@+id/en"
-            />
+            android:text="3. English"
+            android:textColor="@color/white"
+            android:textStyle="normal" />
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="7dp"
+        android:layout_height="334dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true" />
+
+    <ImageButton
+        android:id="@+id/btn_speak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/list"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
 </RelativeLayout>
