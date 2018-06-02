@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">KrishiCare</string>
+    <string name="app_name">test2</string>
+    <string name="marathi">Marathi</string>
+    <string name="hindi">Hindi</string>
+    <string name="english">English</string>
+    <string name="login">Login</string>
 </resources>
