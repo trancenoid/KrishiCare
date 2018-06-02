@@ -64,12 +64,12 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
         query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Second.class));
+                startActivity(new Intent(getApplicationContext(),NewQuery.class));
             }
         });
     }
     public void newQuery(View view){
-        getApplicationContext().startActivity(new Intent(getApplicationContext(),Second.class));
+        getApplicationContext().startActivity(new Intent(getApplicationContext(),NewQuery.class));
     }
     public void Rep(View view) {
         getApplicationContext().startActivity(new Intent(getApplicationContext(),Second.class));
