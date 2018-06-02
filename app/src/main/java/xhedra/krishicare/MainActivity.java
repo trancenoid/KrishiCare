@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                 String english = loc_en.getText().toString();
                 speak("english"); // text to speech of the text view
                 setLocale("en");
+
             }
         });
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         Configuration conf = res.getConfiguration();
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, myDM);
-        Intent refresh = new Intent(this, MainActivity.class);
+        Intent refresh = new Intent(this, NewQuery.class);
         startActivity(refresh);
         finish();
 
