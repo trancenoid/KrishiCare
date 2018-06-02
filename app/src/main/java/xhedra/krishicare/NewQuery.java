@@ -9,6 +9,7 @@ import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
@@ -37,6 +38,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -182,6 +184,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
                 uploadImage();
             }
         });
+
     }
 
     @Override
@@ -291,7 +294,8 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
                 Uri PhotoUri = FileProvider.getUriForFile(NewQuery.this, "xhedra.krishicare.fileprovider", photoFile);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, PhotoUri);
                 startActivityForResult(intent, 1);
-                filePath = Uri.fromFile(new File(mCurrentImagePath));
+
+
             }
         }
     }
@@ -307,5 +311,12 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void speak(String s) {
         engine.speak(s, TextToSpeech.QUEUE_FLUSH, null, null);
+    }
+    @Override
+    protected void onActivityResult(int requestcode, int returncode, Intent data){
+        if(requestcode == 1 && data != null){
+            filePath = Uri.fromFile(new File(mCurrentImagePath));
+            Picasso.get().load(filePath).into(imgUpld);
+        }
     }
 }

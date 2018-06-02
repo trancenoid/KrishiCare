@@ -40,6 +40,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
             public void onClick(View view) {
                 String querystring = query.getText().toString();
                 speak(querystring);
+
             }
         });
 
