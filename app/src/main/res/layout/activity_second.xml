@@ -4,30 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/grad_bg"
     tools:context=".Second">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageButton
             android:id="@+id/btn_speak1"
             android:layout_width="wrap_content"
-            android:layout_margin="15dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_btn_speak_now" />
+            android:layout_margin="100dp"
+            android:background="@drawable/grad_bg"
+            app:srcCompat="@drawable/mic" />
 
         <ListView
+            android:id="@+id/list1"
             android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:id="@+id/list1"/>
+            android:layout_height="1dp" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:orientation="horizontal">
 
             <Button
@@ -35,14 +40,17 @@
                 android:layout_width="255dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="@string/newquery" />
-                android:text="1. New Query" />
+                android:background="@drawable/round"
+                android:text="@string/newquery"
+                android:textColor="#23A7D8" />
+            android:text="1. New Query" />
 
             <ImageButton
                 android:id="@+id/queryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:background="#ffffff"
                 app:srcCompat="@android:drawable/ic_menu_help" />
 
         </LinearLayout>
@@ -50,6 +58,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:orientation="horizontal">
 
             <Button
@@ -57,14 +66,18 @@
                 android:layout_width="256dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="@string/faq" />
-                android:text="2. FAQ" />
+                android:background="@drawable/round"
+
+                android:text="@string/faq"
+                android:textColor="#23A7D8" />
+            android:text="2. FAQ" />
 
             <ImageButton
                 android:id="@+id/faqText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:background="#ffffff"
                 app:srcCompat="@android:drawable/ic_menu_help" />
 
 
@@ -73,6 +86,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:orientation="horizontal">
 
             <Button
@@ -80,19 +94,22 @@
                 android:layout_width="257dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+
+                android:background="@drawable/round"
                 android:onClick="Rep"
-                android:text="3. Replies" />
-                android:text="@string/reply" />
+                android:text="3. Replies"
+                android:textColor="#23A7D8" />
+            android:text="@string/reply" />
 
             <ImageButton
                 android:id="@+id/replyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:background="#ffffff"
                 app:srcCompat="@android:drawable/ic_menu_help" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>
