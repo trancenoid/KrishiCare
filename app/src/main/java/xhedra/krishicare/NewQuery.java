@@ -107,6 +107,8 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         text = findViewById(R.id.textQuery);
         textQuery = (EditText) findViewById(R.id.editText2);
 
+        mList2 = (ListView)findViewById(R.id.list3);
+
         speakButton2 = (ImageButton) findViewById(R.id.btn_speak2);
         speakButton2.setOnClickListener(this);
 
@@ -387,7 +389,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             Picasso.get().load(filePath).into(imgUpld);
             uploadImage();
         }
-        else if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
             // Fill the list view with the strings the recognizer thought it
             // could have heard
             ArrayList matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
@@ -470,7 +472,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
 
     public void voiceinputbuttons() {
         speakButton2 = (ImageButton) findViewById(R.id.btn_speak2);
-        mList2 = (ListView) findViewById(R.id.list);
+        mList2 = (ListView) findViewById(R.id.list3);
     }
 
     public void startVoiceRecognitionActivity() {
