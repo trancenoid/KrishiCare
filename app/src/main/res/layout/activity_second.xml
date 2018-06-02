@@ -35,8 +35,7 @@
                 android:layout_width="255dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="@string/newquery" />
-                android:text="1. New Query" />
+                android:text="@string/newquery"/>
 
             <ImageButton
                 android:id="@+id/queryText"
@@ -81,7 +80,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:onClick="Rep"
-                android:text="3. Replies" />
                 android:text="@string/reply" />
 
             <ImageButton
