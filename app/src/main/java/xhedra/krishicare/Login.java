@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
             public void onClick(View v) {
                 String login = lgnIn.getText().toString();
                 speak(login);
-                getApplicationContext().startActivity(new Intent(getApplicationContext(),Login.class));
+                getApplicationContext().startActivity(new Intent(getApplicationContext(),Second.class));
             }
         });
     }
