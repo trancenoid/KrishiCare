@@ -49,34 +49,32 @@
             />
 
         <Button
+            android:id="@+id/mr"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textColor="@color/white"
-            android:text="@string/marathi"
-            android:textStyle="normal"
-            android:background="@drawable/register_button"
             android:layout_gravity="center"
+            android:layout_marginBottom="36dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/register_button"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="36dp"
-            android:id="@+id/mr"
-            />
+            android:text="मराठी"
+            android:textColor="@color/white"
+            android:textStyle="normal" />
 
         <Button
+            android:id="@+id/hi"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textColor="@color/white"
-            android:text="@string/hindi"
-            android:textStyle="normal"
-            android:background="@drawable/register_button"
             android:layout_gravity="center"
+            android:layout_marginBottom="36dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/register_button"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="36dp"
-            android:id="@+id/hi"
-            />
+            android:text="हिंदी"
+            android:textColor="@color/white"
+            android:textStyle="normal" />
 
         <Button
             android:layout_width="wrap_content"

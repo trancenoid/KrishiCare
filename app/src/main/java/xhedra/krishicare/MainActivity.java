@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             @Override
             public void onClick(View v) {
                 String english = loc_en.getText().toString();
-                speak(english); // text to speech of the text view
+                speak("english"); // text to speech of the text view
                 setLocale("en");
             }
         });
@@ -48,8 +48,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
+
                 String hindi = loc_hi.getText().toString();
-                speak(hindi);
+                speak("hindi");
                 setLocale("hi");
             }
         });
@@ -58,8 +59,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
+
                 String marath = loc_mr.getText().toString();
-                speak(marath);
+                speak("marathi");
                 setLocale("mr");
             }
         });
