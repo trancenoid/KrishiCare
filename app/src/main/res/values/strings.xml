@@ -4,4 +4,12 @@
     <string name="hindi">हिंदी</string>
     <string name="english">English</string>
     <string name="login">Login</string>
+    <string name="audio">Audio</string>
+    <string name="video">Video</string>
+    <string name="text">Text</string>
+    <string name="image">Image</string>
+    <string name="newquery">New Query</string>
+    <string name="faq">FAQ</string>
+    <string name="reply">Reply</string>
+    <string name="upload">UPLOAD</string>
 </resources>

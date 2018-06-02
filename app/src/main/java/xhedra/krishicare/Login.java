@@ -9,11 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.Locale;
 
+
 public class Login extends AppCompatActivity implements TextToSpeech.OnInitListener{
     Button lgnIn;
+    public EditText phoneNo;
+    static public String phn;
     private TextToSpeech engine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,7 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
         if(getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         engine = new TextToSpeech(this,this);
-
+        phoneNo = findViewById(R.id.editText);
         lgnIn = findViewById(R.id.btnLogin);
         lgnIn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -32,6 +36,7 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
             public void onClick(View v) {
                 String login = lgnIn.getText().toString();
                 speak(login);
+                phn = phoneNo.getText().toString();
                 getApplicationContext().startActivity(new Intent(getApplicationContext(),Second.class));
             }
         });

@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -134,7 +135,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
                 String query = textQuery.toString();
                 speak(textS);
                 //addQuery();
-                StorageReference filepath = storage.child("Text").child("text.txt");
+                StorageReference filepath = storage.child(Login.phn).child("text.txt");
 
                 filepath.putBytes(query.getBytes()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -232,7 +233,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         progressDialog.setMessage("Uploading Audio...");
         progressDialog.show();
 
-        StorageReference filepath = storage.child("Audio").child("recording.3gp");
+        StorageReference filepath = storage.child(Login.phn).child("recording.3gp");
         Uri uri = Uri.fromFile(new File(mFileName));
         filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -256,7 +257,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
     }
 
     private void uploadImage() {
-        StorageReference storageReference = storage.child("images").child("IMG.jpg");
+        StorageReference storageReference = storage.child(Login.phn).child("IMG.jpg");
         storageReference.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
