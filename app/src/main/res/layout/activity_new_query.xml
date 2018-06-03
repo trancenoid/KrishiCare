@@ -164,6 +164,4 @@
         android:layout_alignTop="@+id/record"
         android:layout_toEndOf="@+id/record"
         app:srcCompat="@android:drawable/ic_media_pause" />
-
-
 </RelativeLayout>
