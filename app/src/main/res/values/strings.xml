@@ -14,4 +14,5 @@
     <string name="upload">UPLOAD</string>
     <string name="langtest">Please Select Your Language</string>
     <string name="location">Get Location</string>
+    <string name="description">Please Enter your mobile number in which you want your query to be adressed also press the get location button so as get proper advice from expert and then finally press login to continue</string>
 </resources>

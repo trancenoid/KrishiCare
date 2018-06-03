@@ -9,4 +9,6 @@
     <string name="reply">३. जवाब</string>
     <string name="upload">भेजें</string>
     <string name="langtest">कृपया अपनी भाषा चुने</string>
+    <string name="location">स्थान प्राप्त करें</string>
+    <string name="description">कृपया अपना मोबाइल नंबर दर्ज करें जिसमें आप अपनी क्वेरी को संबोधित करना चाहते हैं और स्थान प्राप्त करें बटन दबाएं ताकि विशेषज्ञ से उचित सलाह प्राप्त हो और अंततः जारी रखने के लिए आगे बढ़ें</string>
 </resources>
