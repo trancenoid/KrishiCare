@@ -149,7 +149,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
-                    stopRecording();
+                    //stopRecording();
                     label.setText("Recording stopped");
 
                 }
@@ -263,7 +263,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         mRecorder.release();
         mRecorder = null;
 
-        uploadAudio();
+        //uploadAudio();
     }
 
     private void uploadAudio() {
