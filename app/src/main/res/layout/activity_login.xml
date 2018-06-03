@@ -108,9 +108,9 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:layout_margin="15dp"
+                    android:id="@+id/locText"
                     android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:text="Location Found: Nariman Point,Mumbai,India"/>
+                    android:textAlignment="center" />
 
 
             </LinearLayout>

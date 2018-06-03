@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
@@ -26,6 +27,7 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     static public String phn;
     private TextToSpeech engine;
     private Button location;
+    private TextView locationText;
 
     private ProgressDialog progressDialog;
 
@@ -38,6 +40,7 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
         setContentView(R.layout.activity_login);
 
         location = (Button)findViewById(R.id.btnlocation);
+        locationText = (TextView)findViewById(R.id.locText);
         progressDialog = new ProgressDialog(this);
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -82,7 +85,7 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
                 progressDialog.setMessage("Location Found : Nariman Point,Mumbai,India");
                 progressDialog.dismiss();
                 location.setText("Location found");
-
+                locationText.setText("Location Found : Nariman Point,Mumbai,India");
 
 
             }
