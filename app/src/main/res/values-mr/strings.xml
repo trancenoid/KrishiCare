@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="audio">आवाज</string>
-    <string name="video">व्हिडिओ</string>
-    <string name="text">लेखी प्रश्न</string>
-    <string name="image">चित्र</string>
-    <string name="newquery">नवीन प्रश्न</string>
-    <string name="faq">लोकप्रिय प्रश्न</string>
-    <string name="reply">उत्तर</string>
+    <string name="audio">4. आवाज</string>
+    <string name="video">2. व्हिडिओ</string>
+    <string name="text">3. लेखी प्रश्न</string>
+    <string name="image">1. चित्र</string>
+    <string name="newquery">1. नवीन प्रश्न</string>
+    <string name="faq">2. लोकप्रिय प्रश्न</string>
+    <string name="reply">3. उत्तर</string>
     <string name="upload">पाठवा</string>
+    <string name="langtest">कृपया आपली भाषा निवडा</string>
 </resources>

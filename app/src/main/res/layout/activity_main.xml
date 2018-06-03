@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/langTest"
+            android:text="@string/langtest"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"

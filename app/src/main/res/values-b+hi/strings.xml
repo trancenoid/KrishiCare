@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">test2</string>
-    <string name="marathi">मराठी</string>
-    <string name="hindi">हिंदी</string>
-    <string name="english">English</string>
+    <string name="marathi">१. मराठी</string>
+    <string name="hindi">२. हिंदी</string>
+    <string name="english">3. English</string>
     <string name="login">आगे बढ़े</string>
 </resources>

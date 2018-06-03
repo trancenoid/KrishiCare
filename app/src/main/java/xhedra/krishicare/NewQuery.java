@@ -33,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -76,12 +77,13 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
     private static final int CAMERA_REQUEST = 1888;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     String mCurrentImagePath;
+    String mCurrentVideoPath;
     Uri filePath;
 
     private TextView image, video, text;
     private Button upload;
     private TextToSpeech engine;
-
+    private VideoView videoView;
     private EditText textQuery;
     private TextView videoQuery, imageQuery;
 
@@ -99,7 +101,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
 
         databaseReference = FirebaseDatabase.getInstance().getReference("query");
 
-        //upload = findViewById(R.id.btn_speak2);
+        videoView = findViewById(R.id.vdUpld);
         image = findViewById(R.id.imageQuery);
         video = findViewById(R.id.videoQuery);
         text = findViewById(R.id.textQuery);
@@ -172,6 +174,14 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
                         label.setText("Uploading Finished");
                     }
                 });
+            }
+        });
+
+        videoView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                chooseVideo();
+                return false;
             }
         });
 
@@ -283,6 +293,15 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         mCurrentImagePath = image.getPath();
         return image;
     }
+    private File createNewFile2() throws IOException {
+        String header = "VID";
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String prefix = header + timeStamp;
+        String suffix = ".mp4";
+        File video = File.createTempFile(prefix, suffix, getExternalFilesDir(Environment.DIRECTORY_PICTURES));
+        mCurrentVideoPath = video.getPath();
+        return video;
+    }
 
     private void uploadImage() {
         StorageReference storageReference = storage.child(Login.phn).child("IMG.jpg");
@@ -373,6 +392,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         if(requestCode == 1 && data != null){
             filePath = Uri.fromFile(new File(mCurrentImagePath));
             Picasso.get().load(filePath).into(imgUpld);
+            uploadImage();
         }
         if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == RESULT_OK) {
             // Fill the list view with the strings the recognizer thought it
@@ -391,13 +411,13 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             // the following format;
             // if (matches.contains("keyword here") { startActivity(new
             // Intent("name.of.manifest.ACTIVITY")
-            if(matches.contains("one") || matches.contains("ek")){
-                uploadImage();
-                Toast.makeText(this,"Image Uploaded",Toast.LENGTH_SHORT).show();
-            }else if(matches.contains("do") || matches.contains("to")){
-                uploadImage();
-                Toast.makeText(this,"Video Uploaded",Toast.LENGTH_SHORT).show();
-            }else if(matches.contains("three") || matches.contains("teen")){
+            if (matches.contains("one") || matches.contains("ek")) {
+                chooseImage();
+                Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+            } else if (matches.contains("do") || matches.contains("to")) {
+                chooseVideo();
+                Toast.makeText(this, "Video Uploaded", Toast.LENGTH_SHORT).show();
+            } else if (matches.contains("three") || matches.contains("teen")) {
                 String textS = text.getText().toString();
                 String query = textQuery.toString();
                 speak(textS);
@@ -411,24 +431,31 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
                         label.setText("Uploading Finished");
                     }
                 });
-            }else if(matches.contains("four") || matches.contains("chaar")){
+            } else if (matches.contains("four") || matches.contains("chaar")) {
                 startRecording();
-            }else{
-                Toast.makeText(this,"Please speak again",Toast.LENGTH_SHORT).show();
-            }
-
-            if (matches.contains("information")) {
+            } else {
+                Toast.makeText(this, "Please speak again", Toast.LENGTH_SHORT).show();
+            }if (matches.contains("information")) {
                 informationMenu();
             }
+        }else if (requestCode == 101 && resultCode == RESULT_OK) {
+            filePath = data.getData();
+            //Toast.makeText(NewQuery.this, "Uploading", Toast.LENGTH_LONG).show();
+            uploadVideo();
         }
-    }
+
+
+        }
+
 
     private void chooseVideo() {
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        startActivityForResult(intent, 101);
+        /*
         if (intent.resolveActivity(getPackageManager()) != null) {
             File videoFile = null;
             try {
-                videoFile = createNewFile();
+                videoFile = createNewFile2();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -439,8 +466,9 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
 
 
             }
+            */
         }
-    }
+
 
     public void informationMenu() {
         startActivity(new Intent("android.intent.action.INFOSCREEN"));

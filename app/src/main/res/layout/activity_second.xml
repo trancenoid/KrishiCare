@@ -61,8 +61,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/round"
                 android:layout_margin="15dp"
-                android:text="@string/faq" />
-                android:text="2. FAQ" />
+                android:text="@string/faq"/>
 
             <ImageButton
                 android:id="@+id/faqText"
