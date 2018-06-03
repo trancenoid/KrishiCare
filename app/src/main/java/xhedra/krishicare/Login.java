@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,8 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     static public String phn;
     private TextToSpeech engine;
     private Button location;
-    private TextView locationText;
+    private TextView locationText,description;
+    private ImageButton talk;
 
     private ProgressDialog progressDialog;
 
@@ -41,6 +43,20 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
 
         location = (Button)findViewById(R.id.btnlocation);
         locationText = (TextView)findViewById(R.id.locText);
+        description = (TextView)findViewById(R.id.descrip);
+
+        talk = (ImageButton)findViewById(R.id.descripTalk);
+        talk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String descriptionText = description.getText().toString();
+                speak(descriptionText);
+            }
+        });
+
+        //String descriptionText = description.getText().toString();
+        //speak(descriptionText);
+
         progressDialog = new ProgressDialog(this);
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

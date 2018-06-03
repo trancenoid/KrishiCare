@@ -163,7 +163,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
             // the following format;
             // if (matches.contains("keyword here") { startActivity(new
             // Intent("name.of.manifest.ACTIVITY")
-            if(matches.contains("one") || matches.contains("ek")){
+            if(matches.contains("one") || matches.contains("Ek")){
                 startActivity(new Intent(this,NewQuery.class));
             }else if(matches.contains("to") || matches.contains("do")){
                 startActivity(new Intent(this,FAQ.class));

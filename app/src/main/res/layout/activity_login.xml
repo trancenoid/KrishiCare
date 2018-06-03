@@ -42,7 +42,7 @@
                 android:id="@+id/toolbar"/>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/descrip"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
@@ -50,6 +50,13 @@
                 android:textColor="#fff"
                 android:layout_margin="60dp"
                 android:text="@string/description"/>
+
+            <ImageButton
+                android:id="@+id/descripTalk"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 

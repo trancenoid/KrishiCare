@@ -55,7 +55,7 @@ import java.util.Locale;
 public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitListener,View.OnClickListener {
 
     public ListView mList2;
-    public ImageButton speakButton2;
+    public ImageButton speakButton2,tutorial;
 
     public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
@@ -108,6 +108,14 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
         textQuery = (EditText) findViewById(R.id.editText2);
 
         mList2 = (ListView)findViewById(R.id.list3);
+
+        tutorial = (ImageButton)findViewById(R.id.video);
+        tutorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Tutorial.class));
+            }
+        });
 
         speakButton2 = (ImageButton) findViewById(R.id.btn_speak2);
         speakButton2.setOnClickListener(this);
@@ -411,9 +419,9 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             // the following format;
             // if (matches.contains("keyword here") { startActivity(new
             // Intent("name.of.manifest.ACTIVITY")
-            if (matches.contains("one") || matches.contains("ek")) {
+            if (matches.contains("one") || matches.contains("Ek")) {
                 chooseImage();
-                Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show();
             } else if (matches.contains("do") || matches.contains("to")) {
                 chooseVideo();
                 Toast.makeText(this, "Video Uploaded", Toast.LENGTH_SHORT).show();

@@ -3,25 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/backgro"
     android:layout_height="match_parent"
     tools:context=".Reply">
 
     <ImageView
         android:id="@+id/imageReply"
-        android:layout_width="170dp"
-        android:layout_height="129dp"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        app:srcCompat="@android:drawable/arrow_up_float"
+        android:layout_marginTop="17dp"
+        app:srcCompat="@drawable/crop"
         tools:layout_editor_absoluteX="127dp"
         tools:layout_editor_absoluteY="33dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageReply"
+        android:layout_centerHorizontal="true"
+        android:text="@string/imageReply"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 
     <VideoView
         android:id="@+id/videoReply"
         android:layout_width="321dp"
         android:layout_height="159dp"
-        android:layout_centerInParent="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="190dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/videoReply"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-190dp"
+        android:text="@string/videoReply"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textReply"
@@ -29,6 +51,8 @@
         android:layout_height="39dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="104dp"
-        android:text="TextView" />
+        android:layout_marginBottom="71dp"
+        android:text="@string/textReply"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 </RelativeLayout>

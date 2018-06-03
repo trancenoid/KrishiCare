@@ -10,5 +10,8 @@
     <string name="upload">पाठवा</string>
     <string name="langtest">कृपया आपली भाषा निवडा</string>
     <string name="location">स्थान मिळवा</string>
+    <string name="textReply">मजकूरातील आपले प्रत्युत्तर येथे अपलोड केले जाईल</string>
+    <string name="imageReply">प्रतिमा उत्तर</string>
+    <string name="videoReply">व्हिडिओ प्रत्युत्तर</string>
     <string name="description">कृपया आपला मोबाइल क्रमांक प्रविष्ट करा ज्यात आपल्याला आपली क्वेरी अड्रेस करायची आहे आणि स्थान मिळवा बटण दाबा जेणेकरुन तज्ञांकडून योग्य सल्ला मिळवा आणि शेवटी सुरु ठेवण्यासाठी पुढे जाउन दाबा</string>
 </resources>
