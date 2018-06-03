@@ -19,6 +19,10 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     public EditText phoneNo;
     static public String phn;
     private TextToSpeech engine;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,4 +59,11 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     private void speak(String s){
         engine.speak(s,TextToSpeech.QUEUE_FLUSH,null,null);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
 }

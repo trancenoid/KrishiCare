@@ -26,4 +26,9 @@ public class Reply extends AppCompatActivity {
             Picasso.get().load(intent.getStringExtra("URL")).into(imageView);
         }
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), Second.class));
+    }
 }

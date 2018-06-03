@@ -5,6 +5,7 @@ import android.os.Build;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
     private TextToSpeech engine;
 
     public ListView mList1;
-    public ImageButton speakButton1;
+    public FloatingActionButton speakButton1;
 
     public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
@@ -79,10 +80,24 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
             }
         });
 
-        speakButton1 = (ImageButton) findViewById(R.id.btn_speak1);
+        speakButton1 = (FloatingActionButton) findViewById(R.id.btn_speak1);
         speakButton1.setOnClickListener(this);
 
         voiceinputbuttons();
+        freq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    startActivity(new Intent(getApplicationContext(), FAQ.class));
+
+            }
+        });
+        rep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Reply.class));
+            }
+        });
     }
     public void newQuery(View view){
         getApplicationContext().startActivity(new Intent(getApplicationContext(),NewQuery.class));
@@ -108,7 +123,7 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
     }
 
     public void voiceinputbuttons() {
-        speakButton1 = (ImageButton) findViewById(R.id.btn_speak1);
+        speakButton1 = (FloatingActionButton) findViewById(R.id.btn_speak1);
         mList1 = (ListView) findViewById(R.id.list1);
     }
 
@@ -160,6 +175,11 @@ public class Second extends AppCompatActivity implements TextToSpeech.OnInitList
             }
         }
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), Login.class));
     }
 }
 

@@ -99,7 +99,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
 
         databaseReference = FirebaseDatabase.getInstance().getReference("query");
 
-        upload = findViewById(R.id.record);
+        //upload = findViewById(R.id.btn_speak2);
         image = findViewById(R.id.imageQuery);
         video = findViewById(R.id.videoQuery);
         text = findViewById(R.id.textQuery);
@@ -207,12 +207,12 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
             }
         });
 
-        upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uploadImage();
-            }
-        });
+       // upload.setOnClickListener(new View.OnClickListener() {
+           // @Override
+           // public void onClick(View v) {
+             //   uploadImage();
+           // }
+        //});
 
     }
 
@@ -463,6 +463,11 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
     public void onClick(View v) {
         // TODO Auto-generated method stub
         startVoiceRecognitionActivity();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), Second.class));
     }
 
 }

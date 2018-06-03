@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/natureblue">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/record"
@@ -58,7 +59,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="51dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="178dp"
         android:text="@string/image"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -99,9 +100,9 @@
         android:id="@+id/editText2"
         android:layout_width="161dp"
         android:layout_height="57dp"
-        android:layout_alignEnd="@+id/imgUpld"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="126dp"
+        android:layout_alignStart="@+id/imgUpld"
+        android:layout_marginBottom="221dp"
         android:ems="10"
         android:inputType="text"
         android:singleLine="false"
@@ -119,12 +120,10 @@
         android:layout_width="78dp"
         android:layout_height="36dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageQuery"
-        android:layout_marginBottom="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="167dp"
+        android:layout_marginStart="63dp"
         android:text="@string/text"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -136,12 +135,13 @@
 
     <ImageButton
         android:id="@+id/btn_speak2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="69dp"
+        android:layout_height="72dp"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/round"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="232dp"
-        app:srcCompat="@android:drawable/ic_btn_speak_now" />
+        android:layout_marginBottom="53dp"
+        app:srcCompat="@mipmap/ic_launcher_mic" />
 
     <ListView
         android:layout_width="wrap_content"
