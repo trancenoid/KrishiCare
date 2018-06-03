@@ -1,14 +1,12 @@
 package xhedra.krishicare;
 
-import android.*;
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -19,11 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
-
-import java.util.ArrayList;
 import java.util.Locale;
 
 
@@ -32,6 +25,10 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     public EditText phoneNo;
     static public String phn;
     private TextToSpeech engine;
+    private Button location;
+
+    private ProgressDialog progressDialog;
+
 
 
 
@@ -39,6 +36,9 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        location = (Button)findViewById(R.id.btnlocation);
+        progressDialog = new ProgressDialog(this);
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if(getSupportActionBar() != null)
@@ -54,6 +54,37 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
                 speak(login);
                 phn = phoneNo.getText().toString();
                 getApplicationContext().startActivity(new Intent(getApplicationContext(),Second.class));
+            }
+        });
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                progressDialog.setMessage("Finding Location...");
+                progressDialog.show();
+                Thread thread = new Thread(){
+
+                    public void runThread(){
+
+                        try {
+
+                            sleep(3000);
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                };
+                thread.start();
+                progressDialog.setMessage("Location Found : Nariman Point,Mumbai,India");
+                progressDialog.dismiss();
+                location.setText("Location found");
+
+
+
             }
         });
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
