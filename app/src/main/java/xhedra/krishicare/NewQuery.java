@@ -150,7 +150,7 @@ public class NewQuery extends AppCompatActivity implements TextToSpeech.OnInitLi
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
                     //stopRecording();
-                    label.setText("Recording stopped");
+                   // label.setText("Recording stopped");
 
                 }
 

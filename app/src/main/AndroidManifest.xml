@@ -51,7 +51,8 @@
             </intent-filter>
         </service>
         <activity android:name=".Second" />
-        <activity android:name=".NewQuery" />
+        <activity android:name=".NewQuery"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Reply" />
         <activity android:name=".FAQ"></activity>
     </application>
