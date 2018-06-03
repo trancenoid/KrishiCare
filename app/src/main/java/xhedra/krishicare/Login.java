@@ -1,5 +1,6 @@
 package xhedra.krishicare;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     public EditText phoneNo;
     static public String phn;
     private TextToSpeech engine;
+    private Button location;
+
+    private ProgressDialog progressDialog;
 
 
 
@@ -27,6 +31,9 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        location = (Button)findViewById(R.id.btnlocation);
+        progressDialog = new ProgressDialog(this);
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if(getSupportActionBar() != null)
@@ -42,6 +49,37 @@ public class Login extends AppCompatActivity implements TextToSpeech.OnInitListe
                 speak(login);
                 phn = phoneNo.getText().toString();
                 getApplicationContext().startActivity(new Intent(getApplicationContext(),Second.class));
+            }
+        });
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                progressDialog.setMessage("Finding Location...");
+                progressDialog.show();
+                Thread thread = new Thread(){
+
+                    public void runThread(){
+
+                        try {
+
+                            sleep(3000);
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                };
+                thread.start();
+                progressDialog.setMessage("Location Found : Nariman Point,Mumbai,India");
+                progressDialog.dismiss();
+                location.setText("Location found");
+
+
+
             }
         });
     }
